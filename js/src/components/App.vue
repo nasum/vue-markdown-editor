@@ -3,7 +3,7 @@
     <h1>Vue Markdown Editor</h1>
     <div class="editor-main">
       <div class="main">
-        <textarea class="editor" v-on:keyup="enter"></textarea>
+        <text-area-with-emoji-suggest :source="source" v-on:enter="setSource"></text-area-with-emoji-suggest>
         <div class="preview">
           <vue-markdown :source="source"></vue-markdown>
         </div>
@@ -13,24 +13,25 @@
 </template>
 
 <script>
-// import VueMarkdown from '../../../src/VueMarkdown' // development
-import VueMarkdown from 'vue-markdown' // production
-export default {
-  name: 'app',
-  data () {
-    return {
-      source: ""
+  import VueMarkdown from 'vue-markdown'
+  import TextAreaWithEmojiSuggest from './TextAreaWithEmojiSuggest.vue'
+  export default {
+    name: 'app',
+    data () {
+      return {
+        source: ""
+      }
+    },
+    methods: {
+      setSource: function(data) {
+        this.source = data
+      }
+    },
+    components: {
+      VueMarkdown,
+      TextAreaWithEmojiSuggest
     }
-  },
-  methods: {
-    enter: function(data){
-      this.source = data.target.value
-    }
-  },
-  components: {
-    VueMarkdown
   }
-}
 </script>
 
 <style lang="scss">
@@ -48,14 +49,6 @@ export default {
       .main{
         height: 100%;
         position: relative;
-        .editor {
-          box-sizing: border-box;
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 50%;
-        }
         .preview {
           box-sizing: border-box;
           position: absolute;
