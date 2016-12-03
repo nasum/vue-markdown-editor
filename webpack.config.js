@@ -31,6 +31,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'source-map',
   vue: {
     loaders: {
       scss: 'style!css!sass'
