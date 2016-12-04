@@ -35,10 +35,9 @@
         }).slice(0, 5)
       },
       enter: function(data){
-        const words = data.target.value.split(" ")
+        const words = data.target.value.split(/\s/)
         const lastWord = words.pop()
-        console.log(lastWord)
-        if(lastWord.indexOf(':') >= 0){
+        if(lastWord.indexOf(':') == 0){
           this.preConvertEmoji = lastWord
         } else {
           this.preConvertEmoji = ""
