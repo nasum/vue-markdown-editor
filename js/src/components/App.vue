@@ -3,7 +3,7 @@
     <h1>Vue Markdown Editor</h1>
     <div class="editor-main">
       <div class="main">
-        <text-area-with-emoji-suggest :source="source" v-on:enter="setSource"></text-area-with-emoji-suggest>
+        <text-area-with-emoji-suggest v-on:enter="setSource"></text-area-with-emoji-suggest>
         <div class="preview">
           <vue-markdown :source="source"></vue-markdown>
         </div>

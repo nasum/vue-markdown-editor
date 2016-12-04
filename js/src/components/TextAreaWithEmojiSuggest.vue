@@ -15,7 +15,6 @@
 
   export default {
     name: 'suggest',
-    props: [ 'source' ],
     data () {
       return {
         emojiList: emojiOrigin,
